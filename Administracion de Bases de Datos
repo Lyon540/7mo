@@ -1,0 +1,47 @@
+Create database Tren
+Use Tren
+
+Create table Pasajero(
+Id_Pasajero Int,
+Nombre Varchar (20),
+APaterno Varchar (20),
+AMaterno Varchar (20),
+Email Varchar (60),
+FechaNac Datetime,
+Telefono Varchar (60),
+Id_Pais int
+)
+
+/*Ejercicio 2*/
+Create clustered index indice_Id_Pasajero
+On Pasajero (Id_Pasajero)
+
+/*Ejercicio 3*/
+Create NonClustered index indice_APaterno_AMaterno
+On Pasajero (APaterno, AMaterno)
+
+/*Ejercicio 4*/
+Create NonClustered index indice_Id_Pais
+On Pasajero (Id_Pais)
+
+/*Ejercicio 5*/
+Create NonClustered index indice_Email
+On Pasajero (Email)
+
+/*Ejercicio 6*/
+Create NonClustered index indice_FechaNac
+On Pasajero (FechaNac)
+
+/*Ejercicio 7*/
+Create NonClustered index Indice_APaterno_AMaterno On Pasajero(Nombre)
+With drop_existing
+
+/*Ejercicio 8*/
+Create Clustered index Indice_Id_Pais On Pasajero(Nombre)
+With drop_existing
+
+/*Ejercicio 9*/
+Drop Index Pasajero.indice_Email
+
+/*Ejercicio 10*/
+SP_Helpindex Pasajero
