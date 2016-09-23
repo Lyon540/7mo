@@ -45,3 +45,35 @@ Drop Index Pasajero.indice_Email
 
 /*Ejercicio 10*/
 SP_Helpindex Pasajero
+
+Practica 4
+
+Create database Empresa
+Use Empresa
+
+Create table Venta(
+Codigo_Venta int Primary Key,
+No_Vendedor int,
+Codigo_Producto int,
+Fecha Date
+)
+
+Insert into Venta Values(1,124,23,'08/23/2015')
+Insert into Venta Values(3,643,42,'08/23/2015')
+Insert into Venta Values(5,124,23,'08/25/2015')
+Insert into Venta Values(6,642,45,'08/25/2015')
+
+Create table Vendedor(
+No_Vendedor int Primary Key,
+Nombre Varchar (60),
+Apellido varchar (40),
+Edad int,
+Genero varchar (1),
+Sueldo Money
+)
+
+Insert into Vendedor Values(124,'Gregorio','Arredondo',34,'M','9000')
+Insert into Vendedor Values(34,'Alberto','Luna',20,'M','8500')
+Insert into Vendedor Values(642,'Julio','Mandujando',45,'M','9500')
+Insert into Vendedor Values(145,'Fernando','Cortes',31,'M', '8500')
+Insert into Vendedor Values(643,'Veronica','Sepulveda',19,'F','8500')
