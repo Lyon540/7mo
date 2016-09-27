@@ -91,3 +91,25 @@ Inner Join Vendedor
 On Venta.No_Vendedor=Vendedor.No_Vendedor
 Where Genero ='M'
 Execute Ejercicio2
+
+Create Proc Ejercicio3
+As Select Venta.Codigo_Venta, Venta.No_Vendedor, Venta.Codigo_Producto, Venta.Fecha, Vendedor.Nombre,Vendedor.Apellido From Venta
+Inner Join Vendedor
+On Venta.No_Vendedor=Vendedor.No_Vendedor
+Where Codigo_Producto between 20 and 40
+Execute Ejercicio3
+
+Create Proc Ejercicio4
+As Select Nombre,Apellido,sueldo+500 from Vendedor
+Where Sueldo = 8500
+Execute Ejercicio4
+
+Create Proc Ejercicio5
+As Select Genero, AVG (Sueldo) as 'Salaro Promedio' from Vendedor
+Group by Genero
+Execute Ejercicio5
+
+Alter Proc Ejercicio5
+As  Select Genero, AVG (Sueldo) as 'Salaro Promedio' from Vendedor
+Where Apellido not like '%s'
+Group by Genero
