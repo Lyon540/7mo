@@ -113,3 +113,17 @@ Alter Proc Ejercicio5
 As  Select Genero, AVG (Sueldo) as 'Salaro Promedio' from Vendedor
 Where Apellido not like '%s'
 Group by Genero
+Execute Ejercicio5
+
+Execute Ejercicio5
+Execute Ejercicio4
+Execute Ejercicio3
+Execute Ejercicio2
+Execute Ejercicio1
+
+Sp_Helptext Ejercicio5
+
+Drop Proc Ejercicio4
+
+Practica 5
+
