@@ -127,3 +127,25 @@ Drop Proc Ejercicio4
 
 Practica 5
 
+Create Database Empresa
+use Empresa
+
+Create table Empleado_Laboral (
+No_Empleado int Primary Key,
+Especialidad Varchar (60),
+Fecha_Alta Date,
+Titulo Varchar (2),
+Salario Money,
+Departamento Varchar (60)
+)
+
+Create proc Ejercicio1
+@No_Empleado  int,
+@Especialidad Varchar (60),
+@Fecha_Alta   Date,
+@Titulo       Varchar (2),
+@Salario      Money,
+@Departamento Varchar (50)
+As
+Insert into Empleado_Laboral (No_Empleado,Especialidad,Fecha_Alta,Titulo,Salario,Departamento)
+Values (@No_Empleado,@Especialidad,@Fecha_Alta,@Titulo,@Salario,@Departamento)
