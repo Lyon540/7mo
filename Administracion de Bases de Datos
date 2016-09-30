@@ -150,8 +150,49 @@ As
 Insert into Empleado_Laboral (No_Empleado,Especialidad,Fecha_Alta,Titulo,Salario,Departamento)
 Values (@No_Empleado,@Especialidad,@Fecha_Alta,@Titulo,@Salario,@Departamento)
 
+Execute Ejercicio1 @No_Empleado  = 100,
+                   @Especialidad = 'Contabilidad',
+				   @Fecha_Alta   = '02/05/2001',
+				   @Titulo       = 'Si',
+				   @Salario      = '8000',
+				   @Departamento = 'Finanzas'
+
+Execute Ejercicio1 @No_Empleado  = 101,
+                   @Especialidad = 'Ingenieria',
+				   @Fecha_Alta   = '02/08/2007',
+				   @Titulo       = 'Si',
+				   @Salario      = '10000',
+				   @Departamento = 'Soporte'
+
+Execute Ejercicio1 @No_Empleado  = 102,
+                   @Especialidad = 'Licenciatura',
+				   @Fecha_Alta   = '02/08/2001',
+				   @Titulo       = 'Si',
+				   @Salario      = '10000',
+				   @Departamento = 'Proyectos'
+
+Execute Ejercicio1 @No_Empleado  = 103,
+                   @Especialidad = 'Servicio Social',
+				   @Fecha_Alta   = '02/05/2001',
+				   @Titulo       = 'Si',
+				   @Salario      = '9000',
+				   @Departamento = 'Calidad'
+
+Execute Ejercicio1 @No_Empleado  = 104,
+                   @Especialidad = 'Quimica',
+				   @Fecha_Alta   = '02/05/2001',
+				   @Titulo       = 'Si',
+				   @Salario      = '12000',
+				   @Departamento = 'Produccion'
+           
 Create Proc Ejercicio3
 @Especialidad Varchar (60) As
 Select No_Empleado, Titulo from Empleado_Laboral
 Where Especialidad=@Especialidad
 Execute Ejercicio3 'Arquitectura'
+
+Create Proc Ejercicio4
+@No_Empleado int, @Departamento Varchar(50) As
+Select * from Empleado_Laboral
+Where No_Empleado=@No_Empleado and Departamento=@Departamento
+Execute Ejercicio4
