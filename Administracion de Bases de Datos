@@ -189,10 +189,38 @@ Create Proc Ejercicio3
 @Especialidad Varchar (60) As
 Select No_Empleado, Titulo from Empleado_Laboral
 Where Especialidad=@Especialidad
-Execute Ejercicio3 'Arquitectura'
+Execute Ejercicio3 'Licenciatura'
 
 Create Proc Ejercicio4
 @No_Empleado int, @Departamento Varchar(50) As
 Select * from Empleado_Laboral
 Where No_Empleado=@No_Empleado and Departamento=@Departamento
-Execute Ejercicio4
+Execute Ejercicio4 100,'Finanzas'
+
+Create Proc Ejercicio5
+@Fecha_Alta date, @Salario Money As
+Select * from Empleado_Laboral
+Where Fecha_Alta = @Fecha_Alta or Salario = @Salario
+Execute Ejercicio5 '02/05/2001','9000'
+
+Alter Procedure Ejercicio6
+@No_Empleado Int,
+@Salario Money  As
+Update Empleado_Laboral set Salario = @Salario
+Where No_Empleado = @No_Empleado 
+Execute Ejercicio6 100,12000
+
+Create Procedure Ejercicio7
+@No_Empleado int,
+@Departamento varchar (60),
+@Salario Money  As
+Update Empleado_Laboral set Departamento = @Departamento, Salario = @Salario
+Where No_Empleado = @No_Empleado or Departamento = @Departamento And Salario = @Salario
+Execute Ejercicio7 '103','Finanzas','8000'
+
+Create Procedure Ejercicio8
+@Titulo Varchar (2) As
+Delete from Empleado_Laboral
+Where Titulo=@Titulo
+
+Exec Ejercicio8 'No' 
