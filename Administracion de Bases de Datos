@@ -203,7 +203,7 @@ Select * from Empleado_Laboral
 Where Fecha_Alta = @Fecha_Alta or Salario = @Salario
 Execute Ejercicio5 '02/05/2001','9000'
 
-Alter Procedure Ejercicio6
+Create Procedure Ejercicio6
 @No_Empleado Int,
 @Salario Money  As
 Update Empleado_Laboral set Salario = @Salario
