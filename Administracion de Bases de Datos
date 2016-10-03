@@ -224,3 +224,44 @@ Delete from Empleado_Laboral
 Where Titulo=@Titulo
 
 Exec Ejercicio8 'No' 
+
+Segundo Parcial
+Practica1
+
+Create proc Ejemplo1
+@N1 int,
+@N2 int,
+@Suma int Output As
+Select @Suma=@N1+@N2
+
+Declare @Resultado int
+Exec Ejemplo1 10, 20, @Resultado Output
+Select @Resultado As Suma
+
+Practica 1.1
+
+Create Database Ejercicio_Clase
+Use Ejercicio_Clase
+
+Create Table Ejemplo(
+Matricula Int,
+Nombre Varchar (100),
+Carrera Varchar (10),
+Sexo Varchar (1),
+Edad int
+)
+
+Insert Into Ejemplo Values(184310,'Patricia Vidal Garza', 'LSCA', 'F', 24)
+Insert Into Ejemplo Values(164920,'Ramiro Perez Lopez', 'IMA', 'M', 17)
+Insert Into Ejemplo Values(199879,'Francisco Gonzalez Lopez', 'IAS', 'M', 20)
+
+Create Proc Ejemplo2
+@Cantidad Int Output,
+@Sexo Varchar (1),
+@Edad Int As
+Select @Cantidad=(Select Count (Matricula) From Ejemplo
+Where Sexo=@Sexo And Edad>=@Edad)
+
+Declare @Resultado int
+Exec Ejemplo2 @Resultado Output, 'M',18
+Select @Resultado
