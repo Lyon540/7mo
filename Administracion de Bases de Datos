@@ -265,3 +265,61 @@ Where Sexo=@Sexo And Edad>=@Edad)
 Declare @Resultado int
 Exec Ejemplo2 @Resultado Output, 'M',18
 Select @Resultado
+
+Practica 2
+
+Create database UMM
+Use UMM
+
+Create table Cursos (
+Id_Curso         Int Primary Key,
+Nombre           Varchar (40),
+Id_Categoria     Int,
+Costo            Float,
+Fecha_Disponible Datetime,
+Duracion         Float,
+Presencial       Varchar (30)
+)
+
+Insert into Cursos Values (1, 'Base de Datos', 2, '560', '02/01/1999', '90', 'Si')
+Insert into Cursos Values (2, 'Lenguaje C', 1, '1900', '07/01/2000', '120', 'Si')
+Insert into Cursos Values (3, 'Fotografia', 4, '900', '03/01/1999', '40', 'No')
+Insert into Cursos Values (4, 'Repostreria', 3, '500', '03/01/1999', '5', 'Si')
+Insert into Cursos Values (1, 'SQL', 1, '1500', '07/01/2000', '120', 'Si')
+
+Create table Categorias (
+Id_Categoria Int Primary Key,
+Categoria    Varchar (30)
+)
+
+Insert into Categorias Values (1, 'Programacion')
+Insert into Categorias Values (2, 'BD')
+Insert into Categorias Values (3, 'Cocina')
+Insert into Categorias Values (4, 'Fotografia')
+
+Create table Alumnos (
+Matricula        Int Primary Key,
+Apellidos        Varchar (40),
+Nombre           Varchar (40),
+Sexo             Varchar (15),
+Fecha_Nacimiento Datetime
+)
+
+Insert into Alumnos Values (123766, 'Garcia Gonzalez', 'Raul', 'M', '09/23/1984')
+Insert into Alumnos Values (152442, 'Hurtado Flores', 'Patricia', 'F', '04/17/1990')
+Insert into Alumnos Values (123654, 'Diaz Lopez', 'Diana', 'F', '04/30/1986')
+Insert into Alumnos Values (145242, 'Acosta Sanchez', 'Federico', 'M', '02/25/1991')
+Insert into Alumnos Values (109584, 'Contreras Castillo', 'Angel', 'M', '06/20/1987')
+
+Create table Alumnos_por_Curso(
+Matricula    int,
+Id_Curso     int,
+Año          int,
+Calificacion Float
+)
+
+Insert into Alumnos_por_Curso Values (123766, 1, 2013, '8.7')
+Insert into Alumnos_por_Curso Values (185858, 7, 2010, '9.8')
+Insert into Alumnos_por_Curso Values (190944, 3, 2014, '10')
+Insert into Alumnos_por_Curso Values (145242, 2, 2013, '7.5')
+Insert into Alumnos_por_Curso Values (109584, 1, 2013, '8.7')
