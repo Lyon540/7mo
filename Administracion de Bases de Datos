@@ -285,7 +285,7 @@ Insert into Cursos Values (1, 'Base de Datos', 2, '560', '02/01/1999', '90', 'Si
 Insert into Cursos Values (2, 'Lenguaje C', 1, '1900', '07/01/2000', '120', 'Si')
 Insert into Cursos Values (3, 'Fotografia', 4, '900', '03/01/1999', '40', 'No')
 Insert into Cursos Values (4, 'Repostreria', 3, '500', '03/01/1999', '5', 'Si')
-Insert into Cursos Values (1, 'SQL', 1, '1500', '07/01/2000', '120', 'Si')
+Insert into Cursos Values (5, 'SQL', 1, '1500', '07/01/2000', '120', 'Si')
 
 Create table Categorias (
 Id_Categoria Int Primary Key,
