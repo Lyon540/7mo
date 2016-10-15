@@ -330,10 +330,22 @@ As
 Select Alumnos_por_Curso.Matricula, Alumnos_por_Curso.Id_Curso, Alumnos_por_Curso.Calificacion, Cursos.Nombre from Alumnos_por_Curso
 Inner Join Cursos
 On Alumnos_por_Curso.Id_Curso = Cursos.Id_Curso
-
 /*Ejetcicio 3*/
 Select* from AlumnosVista
 
-/*Ejetcicio 4*/
 Select * From AlumnosVista
 Where Nombre = 'Base de Datos'
+
+Select * From AlumnosVista
+Where Calificacion > '8'
+
+Alter view AlumnosVista 
+As
+Select Alumnos_por_Curso.Matricula, Alumnos_por_Curso.Id_Curso, Alumnos_por_Curso.Calificacion, Cursos.Nombre, Cursos.Presencial from Alumnos_por_Curso
+Inner Join Cursos
+On Alumnos_por_Curso.Id_Curso = Cursos.Id_Curso
+
+Select* from AlumnosVista
+
+
+Drop View AlumnosVista
