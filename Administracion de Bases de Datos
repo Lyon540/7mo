@@ -323,3 +323,17 @@ Insert into Alumnos_por_Curso Values (185858, 7, 2010, '9.8')
 Insert into Alumnos_por_Curso Values (190944, 3, 2014, '10')
 Insert into Alumnos_por_Curso Values (145242, 2, 2013, '7.5')
 Insert into Alumnos_por_Curso Values (109584, 1, 2013, '8.7')
+
+/*Ejercicio 2*/
+Create View AlumnosVista
+As
+Select Alumnos_por_Curso.Matricula, Alumnos_por_Curso.Id_Curso, Alumnos_por_Curso.Calificacion, Cursos.Nombre from Alumnos_por_Curso
+Inner Join Cursos
+On Alumnos_por_Curso.Id_Curso = Cursos.Id_Curso
+
+/*Ejetcicio 3*/
+Select* from AlumnosVista
+
+/*Ejetcicio 4*/
+Select * From AlumnosVista
+Where Nombre = 'Base de Datos'
