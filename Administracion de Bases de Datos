@@ -349,3 +349,50 @@ Select* from AlumnosVista
 
 
 Drop View AlumnosVista
+
+Practica 4
+
+Create database UMM
+Use UMM
+
+Create table Alumno (
+Matricula    int Primary Key,
+Nombre       Varchar (30),
+Carrera      Varchar (50),
+FechaIngreso Date,
+Telefono     Varchar (20)
+)
+
+/*Ejercicio 1*/
+Create Trigger Ejercicio1
+On Alumno 
+For Insert As
+Print 'Se ingreso un Registro'
+
+/*Ejercicio 2*/
+Insert into Alumno Values(147852,'Luis Guerrero','Lic. en Sistemas','05/07/2014','88808572')
+
+/*Ejercicio 3*/
+Alter Table Alumno
+Disable Trigger Ejercicio1
+
+/*Ejercicio 4*/
+Create Trigger Ejercicio2
+On Alumno 
+For After As
+Print 'Se ingreso un Registro'
+
+/*Ejercicio 5*/
+Insert into Alumno Values(147892,'Norma Rocha','Lic. en Sistemas','05/07/2014','88808592')
+
+Alter Table Alumno
+Disable Trigger Ejercicio2
+
+Create Trigger Ejercicio3
+On Alumno 
+Instead of  insert As
+Print 'Se ingreso un Registro'
+
+Insert into Alumno Values(147862,'Laura Delgado','Lic. en Sistemas','05/09/2014','88808592')
+
+Select * from Alumno
