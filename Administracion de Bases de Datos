@@ -381,6 +381,13 @@ San_Pedro Varchar (30),
 Guadalupe Varchar (30)
 )
 
+Create view Vista_Clientes As
+Select * from Clientes
+
+select* from Vista_Clientes
+
+
+
 Practica 4
 
 Create database UMM
