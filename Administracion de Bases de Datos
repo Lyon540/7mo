@@ -350,6 +350,37 @@ Select* from AlumnosVista
 
 Drop View AlumnosVista
 
+Practica 3
+
+create database Autobus
+Use Autobus
+
+Create table Ciudades (
+Codigo_Ciudad TinyInt Identity Primary Key,
+Nombre        Varchar(30)
+)
+
+Create table Clientes(
+Codigo    Int Primary Key,
+Nombre    Varchar(30),
+Domicilio Varchar (40),
+CodCiudad Int
+)
+
+Insert into Clientes Values(1, 'Juan Perez', 'Colon 1123', 1)
+Insert into Clientes Values(3, 'Karina Lopez', 'San Martin 254', 2)
+Insert into Clientes Values(4, 'Luis Garcia', 'Juarez 345', 1)
+Insert into Clientes Values(6, 'Marcos Gonzalez', 'G. Sada 458', 3)
+Insert into Clientes Values(7, 'Nora Torres', 'Mar Rojo 567', 1)
+Insert into Clientes Values(8, 'Oscar Tamez', 'San Martin 786', 4)
+
+Create table Nombre (
+Monterrey Varchar (30),
+Santa_Catarina Varchar (30),
+San_Pedro Varchar (30),
+Guadalupe Varchar (30)
+)
+
 Practica 4
 
 Create database UMM
