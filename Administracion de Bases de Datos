@@ -434,3 +434,69 @@ Print 'Se ingreso un Registro'
 Insert into Alumno Values(147862,'Laura Delgado','Lic. en Sistemas','05/09/2014','88808592')
 
 Select * from Alumno
+
+Practica 5
+
+Create Database Practica5
+Use Practica5
+
+Create table Empleado (
+Id_Empleado  Int Primary Key,
+Nombre       Varchar(30),
+Departamento Varchar(50),
+Sueldo       Money
+)
+
+Create table InsertarEmpleado (
+Usuario  Varchar(50),
+Fecha    Date
+)
+
+Create table Empleado_log(
+Descripcion Varchar(200)
+)
+
+/*Ejercicio 2*/
+Create Trigger Ejercicio2 On Empleado For Insert As
+Insert Into InsertarEmpleado(Usuario, Fecha)
+Values (SUSER_NAME(),GetDate())
+
+/*Ejercicio 3*/
+Insert Into Empleado Values (189906, 'Juan Perez', 'Finanzas', '15000')
+Insert Into Empleado Values (189806, 'Rosa Alvarez', 'Recursos Humanos', '10000')
+Insert Into Empleado Values (189706, 'Roque Masafushi', 'Gerencia', '25000')
+Insert Into Empleado Values (189606, 'Juana Barrios', 'Sistemas', '12000')
+Insert Into Empleado Values (189506, 'Jose Soza', 'Contabilidad', '7500')
+
+/*Ejercicio 4*/
+Create Trigger Ejercicio4 On Empleado For Update As
+Begin Declare @Descripcion Varchar(200)
+Set @Descripcion = 'Se Modifico ek Valor de:'
+
+If Update (Id_Empleado)
+Select @Descripcion=@Descripcion + 'Id_Empleado de:' +
+/*Cast es para los disparadores que se llaman para la modificacion de campos por ej de Int a Varchar, D es el antiguo Valor e I es el valor Actualizado*/
+Cast (D.Id_Empleado As Varchar (50)) + 'As' +
+Cast (I.Id_Empleado As Varchar (20)) + ','
+From Deleted As D, Insterted As I
+
+If Update (Nombre) 
+Select @Descripcion=@Descripcion + 'Nombre de:' +
+D.Nombre + 'a:' + I.Nombre + ','
+From Deleted As D, Inserted As I
+
+If Update (Departamento)
+Select @Descripcion=@Descripcion + 'Departamento de:' +
+D.Departamento + 'a:' + I.Departamento + ','
+From Deleted As D, Inserted As I
+
+If Update (Sueldo)
+Select @Descripcion=@Descripcion + 'Sueldo de:' +
+Cast (D.Sueldo As Varchar(10)) + 'a:' +
+Cast (I.Sueldo As Varchar (10))
+From Deleted as D, Inserted As I
+
+Insert into Empleado_Log (Descripcion)
+Values (@Descripcion)
+
+End
