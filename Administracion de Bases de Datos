@@ -500,3 +500,10 @@ Insert into Empleado_Log (Descripcion)
 Values (@Descripcion)
 
 End
+
+Select * From Empleado
+Select * from InsertarEmpleado
+Select * From Empleado_log
+
+Update Empleado Set Id_Empleado =123456
+Where Id_Empleado= 189906
