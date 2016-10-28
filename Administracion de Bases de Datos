@@ -507,3 +507,46 @@ Select * From Empleado_log
 
 Update Empleado Set Id_Empleado =123456
 Where Id_Empleado= 189906
+
+Practica 6
+
+Create database Empresa
+Use Empresa
+
+Create table Producto(
+Id_Producto Int Primary Key,
+Nombre      Varchar (30),
+Precio      Money,
+Existencias Int
+)
+
+Insert into Producto Values (1, 'Escritorio', '2999', 100)
+Insert into Producto Values (5, 'Silla', '800', 80)
+Insert into Producto Values (9, 'Mouse', '289', 150)
+Insert into Producto Values (10, 'Mouse', '399', 99)
+Insert into Producto Values (19, 'Teclado', '199', 101)
+
+Create table Pedido(
+Id_Pedido   Int Primary Key,
+Id_Producto Int,
+Cantidad    Int
+)
+
+Create trigger Ejemplo1 on Pedido for insert as
+Update Producto set Existencias = Existencias -(Select Cantidad from inserted)
+Where Id_Producto=(Select Id_Producto from inserted)
+
+Insert into Pedido values (1,5,10)
+
+Select * from Pedido
+Select * from Producto
+
+Create trigger Ejemplo2 on Pedido For delete as
+Update Producto set Existencias = Existencias + (Select Cantidad from deleted)
+Where Id_Producto=(Select Id_Producto from deleted)
+
+Delete from Pedido
+Where Id_Pedido = 1
+
+Alter table Pedido
+enable Trigger Ejemplo1
