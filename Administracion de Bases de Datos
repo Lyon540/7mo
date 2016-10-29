@@ -386,7 +386,13 @@ Select * from Clientes
 
 select* from Vista_Clientes
 
+Alter view Vista_Clientes As
+Update Vista_Clientes Set Nombre='Luis Guerrero'
+Where Nombre='Luis Garcia'
 
+Alter view Vista_Clientes As
+Update Vista_Clientes Set CodCiudad= 7
+Where CodCiudad= 2
 
 Practica 4
 
