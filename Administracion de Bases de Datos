@@ -549,4 +549,6 @@ Delete from Pedido
 Where Id_Pedido = 1
 
 Alter table Pedido
-enable Trigger Ejemplo1
+disable Trigger Ejemplo1
+
+
