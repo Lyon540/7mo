@@ -421,7 +421,7 @@ Disable Trigger Ejercicio1
 /*Ejercicio 4*/
 Create Trigger Ejercicio2
 On Alumno 
-For After As
+After insert As
 Print 'Se ingreso un Registro'
 
 /*Ejercicio 5*/
@@ -432,10 +432,10 @@ Disable Trigger Ejercicio2
 
 Create Trigger Ejercicio3
 On Alumno 
-Instead of  insert As
+Instead of insert As
 Print 'Se ingreso un Registro'
 
-Insert into Alumno Values(147862,'Laura Delgado','Lic. en Sistemas','05/09/2014','88808592')
+Insert into Alumno Values(147162,'Laura Delgado','Lic. en Sistemas','05/09/2014','88808593')
 
 Select * from Alumno
 
