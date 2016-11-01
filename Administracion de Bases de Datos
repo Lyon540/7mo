@@ -555,4 +555,29 @@ Where Id_Pedido = 1
 Alter table Pedido
 disable Trigger Ejemplo1
 
+Practica 7
 
+Create database Tienda
+Use Tienda
+
+Create table Producto (
+Id_Producto  Int Primary Key,
+Nombre       Varchar(30),
+Precio       Money,
+Descripcion  Varchar(100),
+Id_Categoria Int
+)
+
+Insert into Producto Values (1, 'Escritorio', '2999', 'Madera', 3)
+Insert into Producto Values (5, 'Silla', '800', 'Piel', 3)
+Insert into Producto Values (9, 'Mouse', '289', 'Alambrico', 2)
+Insert into Producto Values (10, 'Mouse', '399', 'Inalambrico', 2)
+Insert into Producto Values (19, 'Teclado', '199', 'Sin Descripcion', 3)
+
+Create table Producto_Respaldo(
+Id_Producto  Int Primary Key,
+Nombre       Varchar (30),
+Precio       Money,
+Descripcion  Varchar (100),
+Id_Categoria Int
+)
