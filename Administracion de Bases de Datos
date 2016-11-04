@@ -581,3 +581,38 @@ Precio       Money,
 Descripcion  Varchar (100),
 Id_Categoria Int
 )
+
+Create Trigger Ejercicio2
+On Producto
+After Update As Begin
+Declare
+@Id_Producto  Int,
+@Nombre       Varchar(30),
+@Precio       Money,
+@Descripcion  Varchar(100),
+@Id_Categoria Int
+
+Select @Id_Producto=Id_Producto, @Nombre=Nombre, @Precio=Precio, @Descripcion=Descripcion, @Id_Categoria=Id_Categoria
+From deleted
+
+Insert into Producto_Respaldo(Id_Producto,Nombre,Precio,Descripcion,Id_Categoria)
+Values (@Id_Producto,@Nombre,@Precio,@Descripcion,@Id_Categoria)
+End
+
+
+Create Trigger Ejercicio4
+On Producto
+After Delete As Begin
+Declare
+@Id_Producto  Int,
+@Nombre       Varchar(30),
+@Precio       Money,
+@Descripcion  Varchar(100),
+@Id_Categoria Int
+
+Select @Id_Producto=Id_Producto, @Nombre=Nombre, @Precio=Precio, @Descripcion=Descripcion, @Id_Categoria=Id_Categoria
+From deleted
+
+Insert into Producto_Respaldo(Id_Producto,Nombre,Precio,Descripcion,Id_Categoria)
+Values (@Id_Producto,@Nombre,@Precio,@Descripcion,@Id_Categoria)
+End
