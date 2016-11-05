@@ -628,3 +628,8 @@ Select * from Producto
 Select * From Producto_Respaldo
 
 SP_HelpTrigger Producto
+
+Alter Table Producto
+Disable Trigger Ejercicio2
+
+
