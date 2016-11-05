@@ -599,6 +599,11 @@ Insert into Producto_Respaldo(Id_Producto,Nombre,Precio,Descripcion,Id_Categoria
 Values (@Id_Producto,@Nombre,@Precio,@Descripcion,@Id_Categoria)
 End
 
+Update Producto set Precio=4000,Id_Categoria=1
+Where Id_Producto=1
+
+Select * from Producto
+Select * From Producto_Respaldo
 
 Create Trigger Ejercicio4
 On Producto
@@ -612,7 +617,14 @@ Declare
 
 Select @Id_Producto=Id_Producto, @Nombre=Nombre, @Precio=Precio, @Descripcion=Descripcion, @Id_Categoria=Id_Categoria
 From deleted
-
 Insert into Producto_Respaldo(Id_Producto,Nombre,Precio,Descripcion,Id_Categoria)
 Values (@Id_Producto,@Nombre,@Precio,@Descripcion,@Id_Categoria)
 End
+
+Delete from Producto
+Where Id_Producto=5
+
+Select * from Producto
+Select * From Producto_Respaldo
+
+SP_HelpTrigger Producto
