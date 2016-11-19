@@ -696,6 +696,19 @@ Nombre varchar (50),
 Consultorio	int
 )
 
+Alter table Paciente
+Add Constraint PK_Paciente
+Primary key (Codigo)
+
+Alter table Medico
+Add Constraint PK_Medico
+Primary key (Codigo)
+
+Alter table Paciente
+Add Constraint FK_Id_Medico
+Foreign key (Id_Medico)
+References Medico (Codigo)
+
 
 
 
