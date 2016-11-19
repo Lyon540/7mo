@@ -709,6 +709,21 @@ Add Constraint FK_Id_Medico
 Foreign key (Id_Medico)
 References Medico (Codigo)
 
+Insert into Paciente Values (19,'Luis','12/12/1994','5599-4141','Mar Negro 204',1)
+Insert into Paciente Values (9,'Leon','12/14/1994','5599-4146','Mar Negro 205',2)
+Insert into Paciente Values (5,'Laura','12/13/1994','5599-4142','Mar Negro 206',3)
 
+/*Primero se ejecuta la tabla Medico despues Paciente*/
 
+Insert into Medico Values (1,'Francisco','2')
+Insert into Medico Values (2,'Paula','4')
+Insert into Medico Values (3,'Abigail','3')
 
+Delete from Paciente
+Where Codigo = 9
+
+Select * from Paciente
+Select * From Medico
+
+Sp_Helpconstraint Paciente
+Sp_Helpconstraint Medico
