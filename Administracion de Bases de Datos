@@ -633,3 +633,28 @@ Alter Table Producto
 Disable Trigger Ejercicio2
 
 
+*************************** 3ER PARCIAL *******************************
+
+PRACTICA - 2 ((Incompleta))
+
+create database UMM
+use UMM
+
+Create table Paciente(
+Codigo	int not null,
+Nombre	Varchar (50),
+Fecha_Nac Date,
+Direccion Varchar (80),
+Telefono	Varchar (18),
+Id_Medico	int
+)
+
+Create table Medico(
+Codigo int not null,
+Nombre varchar (50),
+Consultorio	int
+)
+
+
+
+
