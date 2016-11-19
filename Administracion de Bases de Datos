@@ -634,6 +634,47 @@ Disable Trigger Ejercicio2
 
 
 *************************** 3ER PARCIAL *******************************
+Practica 1
+
+Create database UMM
+Use UMM
+
+Create table Alumno_Restricciones(
+Matricula       int Not Null,
+ApellidoPaterno Varchar (30),
+ApellidoMaterno Varchar (30),
+Nombre          Varchar (30),
+Celular         Varchar (20),
+Direccion       Varchar (60),
+Carrera         Varchar (40)
+)
+
+Insert into Alumno_Restricciones Values(110944,'Nuñez','Ramos','Ernesto','8320-0911','Juarez 345','LSCA')
+Insert into Alumno_Restricciones Values(128855,'Galindo','Flores','Patricia','8103-2334','Rio Rojo 385','LSCA')
+Insert into Alumno_Restricciones Values(148888,'Martinez','Gomez','Ana','1045-5311','Mar Caspio 4','IMA')
+Insert into Alumno_Restricciones Values(139022,'Sepulveda','Castillo','Hector','8578-9024','Juarez 900','LSCA')
+
+/*Ejericio 1*/
+Alter Table Alumno_Restricciones
+Add Constraint R_Alumno1
+Primary Key(Matricula)
+
+/*Para saber las Restricciones, SIN REPETIR DATOS*/
+Sp_Helpconstraint Alumno_Restricciones
+
+/*Ejercicio 2*/
+Insert into Alumno_Restricciones Values(139023,'Salazar','Lizarraga','Adrian','8578-9025','Juarez 940','LSCA')
+Insert into Alumno_Restricciones Values(139024,'Rivera','Treviño','Anahi','8578-8024','Juarez 903','LSCA')
+
+/*Ejericicio 3*/
+Alter Table Alumno_Restricciones
+Add Constraint RU_Alumno1
+Unique (Celular)
+
+Insert into Alumno_Restricciones Values(139025,'Salazar','Ordoñoez','Adriana','8578-9825','Juarez 950','LSCA')
+Insert into Alumno_Restricciones Values(139026,'Rivera','Masafushi','Sergio','8578-8044','Juarez 963','LSCA')
+
+
 
 PRACTICA - 2 ((Incompleta))
 
