@@ -674,9 +674,7 @@ Unique (Celular)
 Insert into Alumno_Restricciones Values(139025,'Salazar','Ordoñoez','Adriana','8578-9825','Juarez 950','LSCA')
 Insert into Alumno_Restricciones Values(139026,'Rivera','Masafushi','Sergio','8578-8044','Juarez 963','LSCA')
 
-
-
-PRACTICA - 2 ((Incompleta))
+PRACTICA - 2 
 
 create database UMM
 use UMM
@@ -727,3 +725,42 @@ Select * From Medico
 
 Sp_Helpconstraint Paciente
 Sp_Helpconstraint Medico
+
+PRACTICA - 3 
+
+Create database UMM
+Use UMM
+
+Create table Alumno_Restricciones(
+Matricula int not null,
+ApellidoParterno Varchar (30),
+ApellidoMaterno Varchar (30),
+Nombre Varchar (30),
+Telefono Varchar (20),
+Direccion Varchar (60),
+Carrera Varchar (40)
+)
+
+Insert into Alumno_Restricciones Values (110944, 'Nuñez', 'Ramos', 'Ernesto', '8320-0911', 'Juarez 345', 'IAS')
+Insert into Alumno_Restricciones Values (128855, 'Galindo', 'Flores', 'Patricia', '8103-2334', 'Rio Rojo 385', 'IAS')
+Insert into Alumno_Restricciones Values (148888, 'Martinez', 'Gomez', 'Ana', '1045-5311', 'Mar Caspio 4', 'IMA')
+Insert into Alumno_Restricciones Values (139022, 'Sepulveda', 'Castillo', 'Hector', '8578-9024', 'Juarez 900', 'LSCA')
+
+/*Ejercicio 1*/
+Alter table Alumno_Restricciones
+Add Constraint PK_Matricula
+Primary Key (Matricula)
+
+/*Ejercicio 2*/
+Alter table Alumno_Restricciones
+Add Constraint DF_Carrera Default 'IAS' for Carrera
+
+/*Ejercicio 3*/
+Insert into Alumno_Restricciones Values (200547, 'Niño', 'Ramos', 'Carolina', '8324-0941', 'Juarez 545', default)
+Insert into Alumno_Restricciones Values (200548, 'Galindo', 'Torbellini', 'Patricio', '8143-2534', 'Rio Janeiro 485', default)
+
+select * from Alumno_Restricciones
+
+/*Ejercicio 4*/
+Alter table Alumno_Restricciones
+Add Constraint DF_Direccion Default 'Sin Direccion' for Direccion
