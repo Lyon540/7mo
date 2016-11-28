@@ -764,3 +764,52 @@ select * from Alumno_Restricciones
 /*Ejercicio 4*/
 Alter table Alumno_Restricciones
 Add Constraint DF_Direccion Default 'Sin Direccion' for Direccion
+
+PRACTICA - 4 Incompleta
+
+Create database Tienda
+Use Tienda
+
+Create table Articulos_Computacion(
+Cod_Articulo   Int Primary Key,
+NombreArt      Varchar (40),
+PrecioUnitario Money,
+PrecioMay      Money,
+PrecioMen      Money,
+StockArt       Int,
+Fecha_Baja     Datetime
+)
+
+/*Ejercicio 2*/
+Alter table Articulos_Computacion
+Add Constraint CK_NombreArt
+Check (NombreArt not like 'z%')
+/*Test*/
+Insert into Articulos_Computacion Values (1,'Zulema','300','50',41,'12/12/1990')
+
+/*Ejercicio 3*/
+Alter table Articulos_Computacion
+Add Constraint CK_PrecioUnitario
+Check (PrecioUnitario >=40)
+/*Test*/
+Insert into Articulos_Computacion Values (4,'Yui','30','50', '40',41,'12/12/1990')
+
+/*Ejercicio 4*/
+Alter table Articulos_Computacion
+Add Constraint CK_PrecioMay
+Check (PrecioMay in ('99','199','299','399'))
+/*Test*/
+Insert into Articulos_Computacion Values (4,'Yui','90','500','40',41,'12/12/1990')
+
+/*Ejercico 5*/
+Alter table Articulos_Computacion
+Add Constraint CK_PrecioMen
+Check (PrecioMen in ('110','220','330','499'))
+/*Test*/
+Insert into Articulos_Computacion Values (4,'Yui','90','199','111',41,'12/12/1990')
+
+/*Ejercico 6*/
+Alter table Articulos_Computacion
+Add Constraint CK_StockArt
+Check (StockArt between 1 and 999)
+Insert into Articulos_Computacion Values (4,'Yui','90','199','110',1000,'12/12/1990')
