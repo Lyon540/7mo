@@ -766,6 +766,8 @@ Insert into Alumno_Restricciones Values (200549, 'Galindo', 'Torbellini', 'Patri
 
 sp_Helpconstraint Alumno_Restricciones
 
+PRACTICA 4
+
 Create database Tienda
 Use Tienda
 
