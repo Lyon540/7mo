@@ -759,13 +759,12 @@ Add Constraint DF_Carrera Default 'IAS' for Carrera
 Insert into Alumno_Restricciones Values (200547, 'Niño', 'Ramos', 'Carolina', '8324-0941', 'Juarez 545', default)
 Insert into Alumno_Restricciones Values (200548, 'Galindo', 'Torbellini', 'Patricio', '8143-2534', 'Rio Janeiro 485', default)
 
-select * from Alumno_Restricciones
-
 /*Ejercicio 4*/
 Alter table Alumno_Restricciones
 Add Constraint DF_Direccion Default 'Sin Direccion' for Direccion
+Insert into Alumno_Restricciones Values (200549, 'Galindo', 'Torbellini', 'Patricio', '8143-2534', Default, default)
 
-PRACTICA - 4 Incompleta
+sp_Helpconstraint Alumno_Restricciones
 
 Create database Tienda
 Use Tienda
@@ -813,3 +812,22 @@ Alter table Articulos_Computacion
 Add Constraint CK_StockArt
 Check (StockArt between 1 and 999)
 Insert into Articulos_Computacion Values (4,'Yui','90','199','110',1000,'12/12/1990')
+
+/*Ejercico 7*/
+Alter table Articulos_Computacion
+Add Constraint CK_Fecha
+Check (Fecha_Baja > getdate())
+Insert into Articulos_Computacion Values (4,'Yui','90','199','110',1000,'12/12/2016')
+
+/*Ejercicio 8*/
+Alter table Articulos_Computacion
+Add Constraint UK_NombreArt
+Unique (NombreArt)
+
+insert into Articulos_Computacion values(1, 'Lilith','99','199','110',989,'12/12/2016')
+insert into Articulos_Computacion values(2, 'Arin','99','199','110',989,'12/12/2016')
+insert into Articulos_Computacion values(3, 'Mira','99','199','110',989,'12/12/2016')
+
+Select * from Articulos_Computacion
+
+sp_Helpconstraint Articulos_Computacion
