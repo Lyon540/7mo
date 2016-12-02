@@ -634,7 +634,8 @@ Disable Trigger Ejercicio2
 
 
 *************************** 3ER PARCIAL *******************************
-Practica 1
+
+*************************** PRACTICA 1 *******************************
 
 Create database UMM
 Use UMM
@@ -674,7 +675,7 @@ Unique (Celular)
 Insert into Alumno_Restricciones Values(139025,'Salazar','Ordoñoez','Adriana','8578-9825','Juarez 950','LSCA')
 Insert into Alumno_Restricciones Values(139026,'Rivera','Masafushi','Sergio','8578-8044','Juarez 963','LSCA')
 
-PRACTICA - 2 
+*************************** PRACTICA 2 *******************************
 
 create database UMM
 use UMM
@@ -726,7 +727,7 @@ Select * From Medico
 Sp_Helpconstraint Paciente
 Sp_Helpconstraint Medico
 
-PRACTICA - 3 
+*************************** PRACTICA 3 *******************************
 
 Create database UMM
 Use UMM
@@ -766,7 +767,7 @@ Insert into Alumno_Restricciones Values (200549, 'Galindo', 'Torbellini', 'Patri
 
 sp_Helpconstraint Alumno_Restricciones
 
-PRACTICA 4
+*************************** PRACTICA 4 *******************************
 
 Create database Tienda
 Use Tienda
@@ -833,3 +834,52 @@ insert into Articulos_Computacion values(3, 'Mira','99','199','110',989,'12/12/2
 Select * from Articulos_Computacion
 
 sp_Helpconstraint Articulos_Computacion
+
+*************************** PRACTICA 5 *******************************
+
+Create database Empresa
+Use Empresa
+
+Create table Empleados(
+No_emp         Int not null,
+Nombre         Varchar (50),
+Domicilio      Varchar (50),
+Seccion        Varchar (50),
+Sueldo         Money,
+Cantidad_hijos Tinyint
+)
+
+/*1*/
+Alter table Empleados
+Add Constraint Pk_Empleados
+Primary Key (No_emp)
+
+/*2*/
+Alter table Empleados
+Add Constraint Uq_Domicilio
+Unique (Domicilio)
+
+/*3*/
+Alter table Empleados
+Add Constraint Df_Hijos Default 0
+For Cantidad_hijos
+
+/*4*/
+Alter table Empleados
+Add Constraint Ck_Seccion
+Check (Seccion in('Gerencia','Contador','Administracion'))
+
+/*5*/
+Alter table Empleados
+Add Constraint Ck_Sueldo
+Check(Sueldo between 0 and 100000)
+
+/*6*/
+Insert into Empleados values (1,'Gerardo Treviño','Rio Janeiro 204','Administracion','10000',Default)
+Insert into Empleados values (2,'Carlos Guajardo','Rio Nasas 404','Contador','40000',Default)
+Insert into Empleados values (3,'Vicot Saldaña','Mar Negro 502','Gerencia','100000',2)
+
+Select* from Empleados
+
+/*7*/
+SP_HelpConstraint Empleados
